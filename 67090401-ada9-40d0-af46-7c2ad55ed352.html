@@ -1,0 +1,887 @@
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Osteopatico - Trattamenti Professionali a Milano</title>
+    <meta name="description" content="Studio osteopatico professionale a Milano. Trattamenti personalizzati per il benessere e la salute. Prenota la tua visita.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Studio Osteopatico - Trattamenti Professionali a Milano">
+    <meta property="og:description" content="Studio osteopatico professionale a Milano. Trattamenti personalizzati per il benessere e la salute.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            500: '#1e40af',
+                            600: '#1d4ed8',
+                            700: '#1e3a8a'
+                        },
+                        secondary: {
+                            50: '#ecfdf5',
+                            500: '#059669',
+                            600: '#047857',
+                            700: '#065f46'
+                        },
+                        accent: {
+                            500: '#0891b2',
+                            600: '#0e7490'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "[NOME_STUDIO]",
+        "description": "Studio osteopatico professionale specializzato in trattamenti personalizzati",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "[INDIRIZZO]",
+            "addressLocality": "[CITTÀ]",
+            "addressCountry": "IT"
+        },
+        "telephone": "[TEL]",
+        "email": "[EMAIL]",
+        "url": "https://studio-osteopatico.vercel.app",
+        "openingHours": [
+            "Mo-Fr 09:00-19:00",
+            "Sa 09:00-13:00"
+        ],
+        "priceRange": "€€",
+        "serviceType": "Osteopatia"
+    }
+    </script>
+    
+    <style>
+        .hero-video {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .smooth-transition {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            ring-width: 2px;
+            ring-color: #1e40af;
+            border-color: #1e40af;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+
+    <!-- @COMPONENT: Header [sticky navigation with logo and CTA] -->
+    <header class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-primary-700" data-bind="studio.name">[NOME_STUDIO]</h1>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-700 hover:text-primary-600 smooth-transition font-medium">Home</a>
+                        <a href="#chi-sono" class="text-gray-700 hover:text-primary-600 smooth-transition font-medium">Chi sono</a>
+                        <a href="#servizi" class="text-gray-700 hover:text-primary-600 smooth-transition font-medium">Servizi</a>
+                        <a href="#contatti" class="text-gray-700 hover:text-primary-600 smooth-transition font-medium">Contatti</a>
+                    </div>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="flex items-center space-x-4">
+                    <a href="#prenotazioni" 
+                       class="bg-primary-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-700 smooth-transition">
+                        Prenota
+                    </a>
+                    
+                    <!-- Mobile menu button -->
+                    <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="#home" class="text-gray-700 hover:text-primary-600 py-2 font-medium">Home</a>
+                    <a href="#chi-sono" class="text-gray-700 hover:text-primary-600 py-2 font-medium">Chi sono</a>
+                    <a href="#servizi" class="text-gray-700 hover:text-primary-600 py-2 font-medium">Servizi</a>
+                    <a href="#contatti" class="text-gray-700 hover:text-primary-600 py-2 font-medium">Contatti</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- @COMPONENT: HeroSection [main landing area with video/image] -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Video/Image -->
+        <div class="absolute inset-0">
+            <!-- Hero image showcasing a professional osteopathic treatment room with modern equipment -->
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080" 
+                 alt="Sala trattamenti osteopatici moderna e professionale" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Ritrova il benessere con trattamenti osteopatici su misura a <span class="text-secondary-400" data-bind="studio.city">[CITTÀ]</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-2xl mx-auto">
+                Approccio personalizzato e tecniche all'avanguardia per il tuo benessere fisico e mentale
+            </p>
+            <a href="#prenotazioni" 
+               class="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-700 smooth-transition shadow-lg">
+                Prenota una visita
+            </a>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <i class="fas fa-chevron-down text-2xl opacity-70"></i>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- @COMPONENT: ChiSono [about section with credentials] -->
+    <section id="chi-sono" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Professional photo of an osteopath in a modern clinic setting -->
+                <div class="order-2 lg:order-1">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Dottore osteopata professionista" 
+                         class="rounded-2xl shadow-xl w-full h-auto">
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Chi sono</h2>
+                    <p class="text-lg text-gray-600 mb-6" data-mock="true">
+                        Sono un osteopata qualificato con oltre 10 anni di esperienza nel trattamento di disturbi muscolo-scheletrici. 
+                        La mia passione è aiutare i pazienti a ritrovare il benessere attraverso un approccio olistico e personalizzato.
+                    </p>
+                    
+                    <!-- Credentials -->
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-semibold text-gray-900">Formazione e Certificazioni</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-4 rounded-lg" data-mock="true">
+                                <i class="fas fa-graduation-cap text-primary-600 mb-2"></i>
+                                <p class="font-medium">Laurea in Osteopatia</p>
+                                <p class="text-sm text-gray-600">Università Statale Milano</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg" data-mock="true">
+                                <i class="fas fa-certificate text-secondary-600 mb-2"></i>
+                                <p class="font-medium">Specializzazione Pediatrica</p>
+                                <p class="text-sm text-gray-600">AIFI - Certificazione</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg" data-mock="true">
+                                <i class="fas fa-award text-accent-600 mb-2"></i>
+                                <p class="font-medium">Terapia Cranio-Sacrale</p>
+                                <p class="text-sm text-gray-600">Upledger Institute</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg" data-mock="true">
+                                <i class="fas fa-user-md text-primary-600 mb-2"></i>
+                                <p class="font-medium">Iscrizione ROI</p>
+                                <p class="text-sm text-gray-600">N. 1234567</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ChiSono -->
+
+    <!-- @COMPONENT: Servizi [services list with benefits] -->
+    <section id="servizi" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">I nostri servizi</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Trattamenti specializzati per ogni esigenza, con approccio personalizzato e tecniche all'avanguardia
+                </p>
+            </div>
+            
+            <!-- Services Grid -->
+            <!-- @MAP: services.map(service => ( -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Osteopatia Strutturale -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl smooth-transition" data-mock="true">
+                    <div class="bg-primary-100 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-bone text-primary-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Osteopatia Strutturale</h3>
+                    <p class="text-gray-600 mb-4">
+                        Trattamento delle disfunzioni articolari e muscolari per ripristinare la mobilità e ridurre il dolore.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-6">
+                        <li>• Dolori articolari</li>
+                        <li>• Problemi posturali</li>
+                        <li>• Tensioni muscolari</li>
+                    </ul>
+                    <a href="#prenotazioni" class="text-primary-600 font-medium hover:text-primary-700 smooth-transition">
+                        Prenota ora →
+                    </a>
+                </div>
+                
+                <!-- Terapia Cranio-Sacrale -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl smooth-transition" data-mock="true">
+                    <div class="bg-secondary-100 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-head-side-brain text-secondary-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Terapia Cranio-Sacrale</h3>
+                    <p class="text-gray-600 mb-4">
+                        Tecnica delicata per equilibrare il sistema cranio-sacrale e favorire l'autoguarigione del corpo.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-6">
+                        <li>• Mal di testa</li>
+                        <li>• Stress e ansia</li>
+                        <li>• Disturbi del sonno</li>
+                    </ul>
+                    <a href="#prenotazioni" class="text-primary-600 font-medium hover:text-primary-700 smooth-transition">
+                        Prenota ora →
+                    </a>
+                </div>
+                
+                <!-- Osteopatia Viscerale -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl smooth-transition" data-mock="true">
+                    <div class="bg-accent-100 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-lungs text-accent-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Osteopatia Viscerale</h3>
+                    <p class="text-gray-600 mb-4">
+                        Trattamento degli organi interni per migliorare la loro mobilità e funzionalità.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-6">
+                        <li>• Problemi digestivi</li>
+                        <li>• Disfunzioni respiratorie</li>
+                        <li>• Dolori riferiti</li>
+                    </ul>
+                    <a href="#prenotazioni" class="text-primary-600 font-medium hover:text-primary-700 smooth-transition">
+                        Prenota ora →
+                    </a>
+                </div>
+                
+                <!-- Correzione Posturale -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl smooth-transition" data-mock="true">
+                    <div class="bg-primary-100 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-walking text-primary-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Correzione Posturale</h3>
+                    <p class="text-gray-600 mb-4">
+                        Analisi e correzione degli squilibri posturali per prevenire dolori e migliorare il benessere.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-6">
+                        <li>• Scoliosi</li>
+                        <li>• Cifosi e lordosi</li>
+                        <li>• Dolori cervicali</li>
+                    </ul>
+                    <a href="#prenotazioni" class="text-primary-600 font-medium hover:text-primary-700 smooth-transition">
+                        Prenota ora →
+                    </a>
+                </div>
+                
+                <!-- Osteopatia Sportiva -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl smooth-transition" data-mock="true">
+                    <div class="bg-secondary-100 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-running text-secondary-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Osteopatia Sportiva</h3>
+                    <p class="text-gray-600 mb-4">
+                        Trattamenti specifici per atleti, prevenzione infortuni e ottimizzazione delle performance.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-6">
+                        <li>• Prevenzione infortuni</li>
+                        <li>• Recupero post-gara</li>
+                        <li>• Miglioramento performance</li>
+                    </ul>
+                    <a href="#prenotazioni" class="text-primary-600 font-medium hover:text-primary-700 smooth-transition">
+                        Prenota ora →
+                    </a>
+                </div>
+                
+                <!-- Osteopatia Pediatrica -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl smooth-transition" data-mock="true">
+                    <div class="bg-accent-100 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-baby text-accent-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Gravidanza e Neonati</h3>
+                    <p class="text-gray-600 mb-4">
+                        Trattamenti delicati per future mamme e neonati, supporto durante e dopo la gravidanza.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-6">
+                        <li>• Supporto in gravidanza</li>
+                        <li>• Coliche neonatali</li>
+                        <li>• Disturbi del sonno</li>
+                    </ul>
+                    <a href="#prenotazioni" class="text-primary-600 font-medium hover:text-primary-700 smooth-transition">
+                        Prenota ora →
+                    </a>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Servizi -->
+
+    <!-- @COMPONENT: Prenotazioni [booking form with validation] -->
+    <section id="prenotazioni" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Prenota la tua visita</h2>
+                <p class="text-xl text-gray-600">
+                    Compila il form per prenotare il tuo appuntamento. Ti ricontatteremo entro 24 ore.
+                </p>
+            </div>
+            
+            <!-- Booking Form -->
+            <!-- @STATE: formData:object = {}, isSubmitting:boolean = false, errors:object = {} -->
+            <div class="bg-gray-50 rounded-2xl p-8">
+                <form id="booking-form" class="space-y-6" data-implementation="Form should validate and submit to /api/booking">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Nome -->
+                        <div>
+                            <label for="nome" class="block text-sm font-medium text-gray-700 mb-2">Nome e Cognome *</label>
+                            <input type="text" 
+                                   id="nome" 
+                                   name="nome" 
+                                   required
+                                   class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 smooth-transition"
+                                   placeholder="Il tuo nome completo">
+                            <div class="error-message text-red-600 text-sm mt-1 hidden" data-bind="errors.nome"></div>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                            <input type="email" 
+                                   id="email" 
+                                   name="email" 
+                                   required
+                                   class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 smooth-transition"
+                                   placeholder="la-tua-email@esempio.com">
+                            <div class="error-message text-red-600 text-sm mt-1 hidden" data-bind="errors.email"></div>
+                        </div>
+                        
+                        <!-- Telefono -->
+                        <div>
+                            <label for="telefono" class="block text-sm font-medium text-gray-700 mb-2">Telefono *</label>
+                            <input type="tel" 
+                                   id="telefono" 
+                                   name="telefono" 
+                                   required
+                                   class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 smooth-transition"
+                                   placeholder="+39 123 456 7890">
+                            <div class="error-message text-red-600 text-sm mt-1 hidden" data-bind="errors.telefono"></div>
+                        </div>
+                        
+                        <!-- Data -->
+                        <div>
+                            <label for="data" class="block text-sm font-medium text-gray-700 mb-2">Data preferita *</label>
+                            <input type="date" 
+                                   id="data" 
+                                   name="data" 
+                                   required
+                                   class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 smooth-transition">
+                            <div class="error-message text-red-600 text-sm mt-1 hidden" data-bind="errors.data"></div>
+                        </div>
+                        
+                        <!-- Ora -->
+                        <div>
+                            <label for="ora" class="block text-sm font-medium text-gray-700 mb-2">Orario preferito</label>
+                            <select id="ora" 
+                                    name="ora"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 smooth-transition">
+                                <option value="">Seleziona orario</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Servizio -->
+                        <div>
+                            <label for="servizio" class="block text-sm font-medium text-gray-700 mb-2">Tipo di trattamento</label>
+                            <select id="servizio" 
+                                    name="servizio"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 smooth-transition">
+                                <option value="">Seleziona servizio</option>
+                                <option value="strutturale">Osteopatia Strutturale</option>
+                                <option value="cranio-sacrale">Terapia Cranio-Sacrale</option>
+                                <option value="viscerale">Osteopatia Viscerale</option>
+                                <option value="posturale">Correzione Posturale</option>
+                                <option value="sportiva">Osteopatia Sportiva</option>
+                                <option value="pediatrica">Gravidanza e Neonati</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Messaggio -->
+                    <div>
+                        <label for="messaggio" class="block text-sm font-medium text-gray-700 mb-2">Messaggio aggiuntivo</label>
+                        <textarea id="messaggio" 
+                                  name="messaggio" 
+                                  rows="4"
+                                  class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 smooth-transition"
+                                  placeholder="Descrivi brevemente il motivo della visita o eventuali problemi specifici..."></textarea>
+                    </div>
+                    
+                    <!-- Privacy Checkbox -->
+                    <div class="flex items-start space-x-3">
+                        <input type="checkbox" 
+                               id="privacy" 
+                               name="privacy" 
+                               required
+                               class="mt-1 w-4 h-4 text-primary-600 border-gray-300 rounded focus:ring-primary-500">
+                        <label for="privacy" class="text-sm text-gray-600">
+                            Accetto la <a href="#privacy-policy" class="text-primary-600 hover:text-primary-700 underline">Privacy Policy</a> 
+                            e autorizzo il trattamento dei miei dati personali per la gestione della prenotazione. *
+                        </label>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" 
+                                class="bg-primary-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-700 disabled:opacity-50 disabled:cursor-not-allowed smooth-transition"
+                                data-event="click:handleBookingSubmit">
+                            <span class="submit-text">Invia Prenotazione</span>
+                            <span class="loading-text hidden">
+                                <i class="fas fa-spinner fa-spin mr-2"></i>Invio in corso...
+                            </span>
+                        </button>
+                    </div>
+                    
+                    <!-- Success/Error Messages -->
+                    <div id="form-message" class="hidden text-center p-4 rounded-lg">
+                        <!-- Success/error messages will be displayed here -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Prenotazioni -->
+
+    <!-- @COMPONENT: Contatti [contact information and map] -->
+    <section id="contatti" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contatti</h2>
+                <p class="text-xl text-gray-600">
+                    Siamo qui per te. Contattaci per qualsiasi informazione o per prenotare la tua visita.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6">Informazioni di contatto</h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Telefono -->
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-primary-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-phone text-primary-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600">Telefono</p>
+                                    <a href="tel:[TEL]" class="text-lg font-semibold text-gray-900 hover:text-primary-600 smooth-transition" data-bind="studio.phone">[TEL]</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-secondary-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-envelope text-secondary-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600">Email</p>
+                                    <a href="mailto:[EMAIL]" class="text-lg font-semibold text-gray-900 hover:text-secondary-600 smooth-transition" data-bind="studio.email">[EMAIL]</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Indirizzo -->
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-accent-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-accent-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600">Indirizzo</p>
+                                    <p class="text-lg font-semibold text-gray-900" data-bind="studio.address">[INDIRIZZO], [CITTÀ]</p>
+                                </div>
+                            </div>
+                            
+                            <!-- WhatsApp -->
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <i class="fab fa-whatsapp text-green-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600">WhatsApp</p>
+                                    <a href="[WHATSAPP_LINK]" 
+                                       class="text-lg font-semibold text-gray-900 hover:text-green-600 smooth-transition"
+                                       target="_blank"
+                                       data-bind="studio.whatsapp">Scrivici su WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Orari -->
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4">Orari di apertura</h4>
+                            <div class="space-y-2 text-gray-600" data-mock="true">
+                                <div class="flex justify-between">
+                                    <span>Lunedì - Venerdì</span>
+                                    <span>09:00 - 19:00</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Sabato</span>
+                                    <span>09:00 - 13:00</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Domenica</span>
+                                    <span>Chiuso</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Google Maps -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-6 border-b border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900">Come raggiungerci</h3>
+                    </div>
+                    <!-- Embedded Google Maps showing the studio location -->
+                    <div class="w-full h-96">
+                        <iframe src="https://maps.google.com/?q=[LINK_MAPS]" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Mappa della posizione dello studio osteopatico"
+                                data-implementation="Replace [LINK_MAPS] with actual Google Maps embed URL">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contatti -->
+
+    <!-- @COMPONENT: Footer [site footer with links and CTA] -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Studio Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4" data-bind="studio.name">[NOME_STUDIO]</h3>
+                    <p class="text-gray-300 mb-4" data-mock="true">
+                        Studio osteopatico professionale dedicato al tuo benessere e alla tua salute.
+                    </p>
+                    <div class="space-y-2 text-gray-300">
+                        <p data-bind="studio.address">[INDIRIZZO], [CITTÀ]</p>
+                        <p>Tel: <a href="tel:[TEL]" class="hover:text-white smooth-transition" data-bind="studio.phone">[TEL]</a></p>
+                        <p>Email: <a href="mailto:[EMAIL]" class="hover:text-white smooth-transition" data-bind="studio.email">[EMAIL]</a></p>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Link rapidi</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#home" class="hover:text-white smooth-transition">Home</a></li>
+                        <li><a href="#chi-sono" class="hover:text-white smooth-transition">Chi sono</a></li>
+                        <li><a href="#servizi" class="hover:text-white smooth-transition">Servizi</a></li>
+                        <li><a href="#contatti" class="hover:text-white smooth-transition">Contatti</a></li>
+                        <li><a href="#privacy-policy" class="hover:text-white smooth-transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- CTA -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Prenota ora</h4>
+                    <p class="text-gray-300 mb-4">Inizia il tuo percorso verso il benessere</p>
+                    <a href="#prenotazioni" 
+                       class="inline-block bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 smooth-transition">
+                        Prenota una visita
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 <span data-bind="studio.name">[NOME_STUDIO]</span>. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- @COMPONENT: FloatingWhatsApp [fixed WhatsApp button] -->
+    <a href="[WHATSAPP_LINK]" 
+       target="_blank"
+       class="floating-whatsapp bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg smooth-transition"
+       data-bind="studio.whatsapp"
+       title="Scrivici su WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+    <!-- @END_COMPONENT: FloatingWhatsApp -->
+
+    <!-- @COMPONENT: PrivacyModal [privacy policy modal] -->
+    <div id="privacy-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-gray-900">Privacy Policy</h2>
+                <button onclick="closePrivacyModal()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-6 text-gray-600" data-mock="true">
+                <section>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">1. Titolare del trattamento</h3>
+                    <p>Il titolare del trattamento dei dati personali è [NOME_STUDIO], con sede in [INDIRIZZO], [CITTÀ].</p>
+                </section>
+                
+                <section>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">2. Finalità del trattamento</h3>
+                    <p>I dati personali vengono raccolti e trattati per le seguenti finalità:</p>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li>Gestione delle prenotazioni e appuntamenti</li>
+                        <li>Erogazione dei servizi osteopatici</li>
+                        <li>Comunicazioni relative ai servizi offerti</li>
+                        <li>Adempimenti di legge</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">3. Base giuridica</h3>
+                    <p>Il trattamento è basato sul consenso dell'interessato e sull'esecuzione di un contratto di cui l'interessato è parte.</p>
+                </section>
+                
+                <section>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">4. Diritti dell'interessato</h3>
+                    <p>L'interessato ha diritto di accedere ai propri dati personali, di ottenerne la rettifica o la cancellazione, di limitarne il trattamento, di opporsi al trattamento, alla portabilità dei dati.</p>
+                </section>
+                
+                <section>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">5. Periodo di conservazione</h3>
+                    <p>I dati personali saranno conservati per il tempo necessario al raggiungimento delle finalità e in conformità agli obblighi di legge.</p>
+                </section>
+                
+                <section>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">6. Contatti</h3>
+                    <p>Per esercitare i propri diritti o per maggiori informazioni, è possibile contattare il titolare all'indirizzo email [EMAIL] o al numero di telefono [TEL].</p>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: PrivacyModal -->
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Privacy modal functions
+        function openPrivacyModal() {
+            document.getElementById('privacy-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closePrivacyModal() {
+            document.getElementById('privacy-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Privacy policy link handler
+        document.querySelector('a[href="#privacy-policy"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            openPrivacyModal();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#privacy-policy') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Close mobile menu if open
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                }
+            });
+        });
+        
+        // Form validation and submission
+        (function() {
+            const form = document.getElementById('booking-form');
+            const submitButton = form.querySelector('button[type="submit"]');
+            const submitText = submitButton.querySelector('.submit-text');
+            const loadingText = submitButton.querySelector('.loading-text');
+            const messageDiv = document.getElementById('form-message');
+            
+            // Client-side form validation
+            function validateForm(formData) {
+                const errors = {};
+                
+                if (!formData.get('nome').trim()) {
+                    errors.nome = 'Il nome è obbligatorio';
+                }
+                
+                const email = formData.get('email').trim();
+                if (!email) {
+                    errors.email = 'L\'email è obbligatoria';
+                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    errors.email = 'Inserisci un\'email valida';
+                }
+                
+                const telefono = formData.get('telefono').trim();
+                if (!telefono) {
+                    errors.telefono = 'Il telefono è obbligatorio';
+                } else if (!/^[\+]?[0-9\s\-\(\)]{8,}$/.test(telefono)) {
+                    errors.telefono = 'Inserisci un numero di telefono valido';
+                }
+                
+                if (!formData.get('data')) {
+                    errors.data = 'La data è obbligatoria';
+                }
+                
+                if (!formData.get('privacy')) {
+                    errors.privacy = 'Devi accettare la privacy policy';
+                }
+                
+                return errors;
+            }
+            
+            function showErrors(errors) {
+                // Clear previous errors
+                document.querySelectorAll('.error-message').forEach(el => {
+                    el.classList.add('hidden');
+                    el.textContent = '';
+                });
+                
+                // Show new errors
+                Object.keys(errors).forEach(field => {
+                    const errorEl = document.querySelector(`[data-bind="errors.${field}"]`);
+                    if (errorEl) {
+                        errorEl.textContent = errors[field];
+                        errorEl.classList.remove('hidden');
+                    }
+                });
+            }
+            
+            function showMessage(message, type = 'success') {
+                messageDiv.className = `text-center p-4 rounded-lg ${type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+                messageDiv.textContent = message;
+                messageDiv.classList.remove('hidden');
+            }
+            
+            // TODO: Implement business logic, API calls, or state management
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const errors = validateForm(formData);
+                
+                if (Object.keys(errors).length > 0) {
+                    showErrors(errors);
+                    return;
+                }
+                
+                // Clear errors
+                showErrors({});
+                messageDiv.classList.add('hidden');
+                
+                // Show loading state
+                submitButton.disabled = true;
+                submitText.classList.add('hidden');
+                loadingText.classList.remove('hidden');
+                
+                try {
+                    // Simulate API call to /api/booking
+                    const response = await fetch('/api/booking', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (response.ok) {
+                        showMessage('Prenotazione inviata con successo! Ti ricontatteremo entro 24 ore.', 'success');
+                        form.reset();
+                    } else {
+                        throw new Error('Errore durante l\'invio');
+                    }
+                } catch (error) {
+                    showMessage('Si è verificato un errore. Riprova più tardi o contattaci direttamente.', 'error');
+                } finally {
+                    // Reset loading state
+                    submitButton.disabled = false;
+                    submitText.classList.remove('hidden');
+                    loadingText.classList.add('hidden');
+                }
+            });
+        })();
+        
+        // Set minimum date for booking form (today)
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById('data');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        });
+    </script>
+</body>
+</html>
